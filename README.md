@@ -20,6 +20,8 @@
 
 A **S**imple POS**IX**-compliant **Logger** function.
 
+[![asciicast](https://asciinema.org/a/765449.svg)](https://asciinema.org/a/765449)
+
 ## Requirements
 
 Has only a few requirements:
