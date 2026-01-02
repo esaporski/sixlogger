@@ -63,7 +63,7 @@ test: build shellspec-gen-bin ## Run tests with `shellspec`
 test-coverage: build shellspec-gen-bin ## Test and check code coverage with `shellspec` and `kcov`
 	@echo "+ $@"
 	@echo -e "\n+ Running shellspec and kcov..."
-	@shellspec --kcov
+	@shellspec --kcov --shell bash
 
 test-containers: build container-images ## Test multiple shells in different OSes with container images
 	@echo "+ $@"
