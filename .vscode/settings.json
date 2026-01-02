@@ -1,0 +1,22 @@
+{
+  "coverage-gutters.showGutterCoverage": false,
+  "coverage-gutters.showLineCoverage": true,
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.json": "json"
+  },
+  "[json]": {
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+  },
+  "[markdown]": {
+    "editor.formatOnPaste": true
+  },
+  "redhat.telemetry.enabled": false,
+  "yaml.schemas": {
+    "https://www.schemastore.org/pre-commit-config.json": [
+      "/.pre-commit-config.yml",
+      "/.pre-commit-config.yaml"
+    ]
+  }
+}

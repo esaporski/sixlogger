@@ -1,0 +1,51 @@
+# pre-commit install --install-hooks
+repos:
+  - repo: local
+    hooks:
+      - id: shfmt
+        name: shfmt
+        language: system
+        entry: make
+        pass_filenames: false
+        args:
+          - "format"
+  - repo: local
+    hooks:
+      - id: shellspec
+        name: shellspec
+        language: system
+        entry: make
+        pass_filenames: false
+        args:
+          - "test"
+  - repo: https://github.com/koalaman/shellcheck-precommit
+    rev: v0.11.0
+    hooks:
+      - id: shellcheck
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.9.1
+    hooks:
+      - id: commitizen
+      - id: commitizen-branch
+        stages:
+          - pre-push
+  - repo: https://github.com/hadolint/hadolint
+    rev: v2.12.0
+    hooks:
+      - id: hadolint
+        args:
+          - "docker/*.dockerfile"
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-json
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args:
+          - "--fix=lf"
+      - id: trailing-whitespace

@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "davidanson.vscode-markdownlint",
+    "editorconfig.editorconfig",
+    "exiasr.hadolint",
+    "mkhl.shfmt",
+    "redhat.vscode-yaml",
+    "ryanluker.vscode-coverage-gutters",
+    "timonwong.shellcheck"
+  ]
+}

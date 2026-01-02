@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Build
+        run: make build
+
+      - name: Fetch tags
+        run: git fetch --tags --force
+
+      - name: Get tag annotation
+        id: tag_annotation
+        env:
+          TAG: ${{ github.ref }}
+        run: |
+          # Outputting in this way makes sure multiple lines are handled correctly
+          {
+            # This marks the start of the output
+            echo 'annotation<<EOF'
+
+            # This logs the tag annotation
+            git for-each-ref "${TAG}" --format '%(contents)'
+
+            # This marks the end of the output
+            echo 'EOF'
+
+          # Actually writing the output here
+          } >>"${GITHUB_OUTPUT}"
+
+      - name: Release
+        id: release
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        with:
+          body: ${{ steps.tag_annotation.outputs.annotation }}
+          draft: false
+          prerelease: false
+          files: build/sixlogger.sh
+          make_latest: true

@@ -1,0 +1,3 @@
+#!/bin/sh -e
+. "$SHELLSPEC_SUPPORT_BIN"
+invoke date "$@"
