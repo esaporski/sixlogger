@@ -1,0 +1,53 @@
+name: Deploy static content to Pages
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: ["master"]
+
+env:
+  FORCE_COLOR: 1
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dash kcov
+
+      - name: Install shellspec
+        run: |
+          echo "${HOME}/.local/bin" >> "$GITHUB_PATH"
+          curl -fsSL https://git.io/shellspec | sh -s master -y
+
+      - name: Measure code coverage
+        run: make test-coverage
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: "coverage"
+
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
