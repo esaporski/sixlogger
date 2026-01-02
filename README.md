@@ -68,23 +68,29 @@ The `sixlogger` function takes two arguments:
 
 ## Usage
 
+### Download script
+
+```sh
+# Create a new script with sixlogger
+SIXLOGGER_VERSION=0.1.0
+cat <<EOF > sixlogger.sh && chmod +x sixlogger.sh
+#!/bin/sh
+$(curl -sSfL "https://github.com/esaporski/sixlogger/releases/download/${SIXLOGGER_VERSION}/sixlogger.sh")
+EOF
+```
+
 ### Embedding into a file
 
 ```shell
-# New script
-cp src/sixlogger.sh my_script.sh &&
-  chmod +x my_script.sh
-
-# Get function comments and function definition
-sed -n '/#######################################/,$p' src/sixlogger.sh |
-  sed -i '/#!\/bin\/sh/r /dev/stdin' my_script.sh
-
-# Get only the function definition
-sed -n '/sixlogger()/,$p' src/sixlogger.sh |
+# Add the sixlogger function after shebang `#!`
+SIXLOGGER_VERSION=0.1.0
+curl -sSfL "https://github.com/esaporski/sixlogger/releases/download/${SIXLOGGER_VERSION}/sixlogger.sh" |
   sed -i '/#!/r /dev/stdin' my_script.sh
 ```
 
 ### Source it from another file
+
+After downloading the script with the command above, add these lines in your script:
 
 ```sh
 #!/bin/sh
