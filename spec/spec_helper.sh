@@ -5,12 +5,15 @@ set -eu
 
 # Support commands are generated in the `spec/support/bin` directory by the `--gen-bin` option.
 # Run `shellspec --gen-bin @date` to generate the `@date` command.
+MOCK_DATE="2025-12-01T00:00:00+00:00"
 date() {
-	@date -d "2025-12-01" "$@"
+	# Check if `date` command runs
+	if ! @date -u -Iseconds >/dev/null 2>&1; then exit 1; fi
+	echo "$MOCK_DATE"
 }
 
 get_date() {
-	date -u -Iseconds
+	echo "$MOCK_DATE"
 }
 
 get_filename() {
