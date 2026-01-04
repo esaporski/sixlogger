@@ -1,0 +1,9 @@
+{"version":3,"term":{"cols":106,"rows":24,"type":"xterm-kitty","version":"kitty(0.44.0)","theme":{"fg":"#dddddd","bg":"#000000","palette":"#000000:#cc0403:#19cb00:#cecb00:#0d73cc:#cb1ed1:#0dcdcd:#dddddd:#767676:#f2201f:#23fd00:#fffd00:#1a8fff:#fd28ff:#14ffff:#ffffff"}},"timestamp":1767498774,"command":"./scripts/asciinema.sh","env":{"SHELL":"/usr/bin/zsh"}}
+[2.012, "o", "\u001b[0;32m2026-01-04T03:52:56+00:00 | info | asciinema.sh | Information, information\u001b[0m\r\n"]
+[2.007, "o", "\u001b[1;33m2026-01-04T03:52:58+00:00 | warn | asciinema.sh | Who are you?\u001b[0m\r\n"]
+[2.007, "o", "\u001b[0;31m2026-01-04T03:53:00+00:00 | error | asciinema.sh | Error messages go to 'stderr'\u001b[0m\r\n"]
+[2.008, "o", "\u001b[1;31m2026-01-04T03:53:02+00:00 | fatal | asciinema.sh | Fatal messages also go to 'stderr'\u001b[0m\r\n"]
+[2.007, "o", "\u001b[0;32m2026-01-04T03:53:04+00:00 | info | asciinema.sh | You can show debug messages with 'SIXLOGGER_DEBUG=true' or 'DEBUG=true'\u001b[0m\r\n"]
+[2.008, "o", "\u001b[0;34m2026-01-04T03:53:06+00:00 | debug | asciinema.sh | This is a debug message ;)\u001b[0m\r\n"]
+[2.006, "o", "2026-01-04T03:53:08+00:00 | info | asciinema.sh | You can disable colored output with 'SIXLOGGER_NO_COLOR=true' or 'NO_COLOR=true'\r\n"]
+[0.001, "x", "0"]

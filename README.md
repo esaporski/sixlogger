@@ -20,7 +20,7 @@
 
 A **S**imple POS**IX**-compliant **Logger** function for shell scripts.
 
-[![asciicast](https://asciinema.org/a/765449.svg)](https://asciinema.org/a/765449)
+![asciinema](docs/asciinema.gif)
 
 ## Requirements
 
