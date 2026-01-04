@@ -1,6 +1,7 @@
 # SixLogger
 
 <!-- markdownlint-disable MD033 -->
+![GitHub Release](https://img.shields.io/github/v/release/esaporski/sixlogger?color=blue)
 [![Language](https://img.shields.io/github/languages/top/esaporski/sixlogger.svg)](https://github.com/esaporski/sixlogger/search?l=Shell)
 [![kcov](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fesaporski.github.io%2Fsixlogger%2Fcoverage.json&query=percent_covered&label=kcov&suffix=%25)](https://esaporski.github.io/sixlogger/)
 [![License](https://img.shields.io/github/license/esaporski/sixlogger.svg)](https://github.com/esaporski/sixlogger/blob/master/LICENSE)<br>
