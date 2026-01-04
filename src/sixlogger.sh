@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# A Simple POSIX-compliant Logger function.
+# A Simple POSIX-compliant Logger function for shell scripts.
 
 #######################################
 # Logger function.
