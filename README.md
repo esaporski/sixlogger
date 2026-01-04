@@ -41,8 +41,8 @@ Has only a few requirements:
 | `SIXLOGGER_COLOR_DEBUG` | Set output color for `debug` messages | `ANSI escape sequence` | `\033[0;34m` |
 | `SIXLOGGER_COLOR_INFO` | Set output color for `info` messages | `ANSI escape sequence` | `\033[0;32m` |
 | `SIXLOGGER_COLOR_WARN` | Set output color for `warn` messages | `ANSI escape sequence` | `\033[1;33m` |
-| `SIXLOGGER_COLOR_ERROR` | Set output color for `error` messages | `ANSI escape sequence` | `\033[1;31m` |
-| `SIXLOGGER_COLOR_FATAL` | Set output color for `fatal` messages | `ANSI escape sequence` | `\033[0;31m` |
+| `SIXLOGGER_COLOR_ERROR` | Set output color for `error` messages | `ANSI escape sequence` | `\033[0;31m` |
+| `SIXLOGGER_COLOR_FATAL` | Set output color for `fatal` messages | `ANSI escape sequence` | `\033[1;31m` |
 | `E_SIXLOGGER_UNKNOWN_LOGLEVEL` | Set status code for unknown loglevel error | `number` | `30` |
 
 ## Arguments

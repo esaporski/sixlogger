@@ -31,8 +31,8 @@ sixlogger() {
 	_sl_color_debug=${SIXLOGGER_COLOR_DEBUG:-'\033[0;34m'} # Blue
 	_sl_color_info=${SIXLOGGER_COLOR_INFO:-'\033[0;32m'}   # Green
 	_sl_color_warn=${SIXLOGGER_COLOR_WARN:-'\033[1;33m'}   # Yellow
-	_sl_color_error=${SIXLOGGER_COLOR_ERROR:-'\033[1;31m'} # Light Red
-	_sl_color_fatal=${SIXLOGGER_COLOR_FATAL:-'\033[0;31m'} # Red
+	_sl_color_error=${SIXLOGGER_COLOR_ERROR:-'\033[0;31m'} # Red
+	_sl_color_fatal=${SIXLOGGER_COLOR_FATAL:-'\033[1;31m'} # Light Red
 	_sl_color_off='\033[0m'
 
 	e_sl_unknown_loglevel=${E_SIXLOGGER_UNKNOWN_LOGLEVEL:-30}
