@@ -29,6 +29,18 @@ container-images: ## Build container images for `shellspec`
 			"${script_dir}/.."; \
 	done
 
+.PHONY: vagrant
+VAGRANT_DEFAULT_PROVIDER := "virtualbox"
+vagrant-up: ## Start Vagrant VMs for `shellspec`
+	@echo "+ $@"
+	@echo -e "\n+ Starting Vagrant VMs..."
+	@export VAGRANT_CWD=$(MAKEFILE_DIR)/vagrant && vagrant up
+
+vagrant-halt: ## Halt Vagrant VMs
+	@echo "+ $@"
+	@echo -e "\n+ Halting Vagrant VMs..."
+	@export VAGRANT_CWD=$(MAKEFILE_DIR)/vagrant && vagrant halt
+
 ## Test:
 ALTSHFMT_VERSION :=0.2.0
 download-altshfmt: ## Download `altshfmt` to format `shellspec` files
@@ -41,7 +53,7 @@ download-altshfmt: ## Download `altshfmt` to format `shellspec` files
 format: ## Format shell scripts with `shfmt` and `altshfmt`
 	@echo "+ $@"
 	@echo -e "\n+ Running shfmt..."
-	@shfmt --write $(MAKEFILE_DIR)/src/ $(MAKEFILE_DIR)/examples/
+	@shfmt --write $(MAKEFILE_DIR)/src/ $(MAKEFILE_DIR)/examples/ $(MAKEFILE_DIR)/scripts/
 	@echo -e "\n+ Running altshfmt..."
 	@$(MAKEFILE_DIR)/scripts/altshfmt -w -ln=posix spec/
 
@@ -65,10 +77,11 @@ test-coverage: build shellspec-gen-bin ## Test and check code coverage with `she
 	@echo -e "\n+ Running shellspec and kcov..."
 	@shellspec --kcov --shell bash
 
-test-containers: build container-images ## Test multiple shells in different OSes with container images
+test-all: build container-images vagrant-up ## Test multiple shells in different OSes with container images and VMs
 	@echo "+ $@"
 	@echo -e "\n+ Running all shellspec tests..."
 	@$(MAKEFILE_DIR)/scripts/run_tests.sh
+	@make vagrant-halt
 
 ## Release:
 bump: ## Bump semantic version based on the git log and generate changelog

@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # config.vm.guest = :freebsd
+  config.vm.box = "generic/freebsd14"
+
+  # Disable the default synced folder
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # Share project root dir
+  config.vm.synced_folder "../", "/mnt"
+
+  config.vm.provider :virtualbox do |vb|
+    vb.cpus = 1
+    vb.memory = 256
+  end
+
+  # Enable provisioning with a shell script
+  config.vm.provision "shell", privileged: true, path: "../scripts/vagrant_freebsd_provision.sh"
+end

@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/linux,macos,windows,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=linux,macos,windows,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/linux,macos,windows,visualstudiocode,vagrant
+# Edit at https://www.toptal.com/developers/gitignore?templates=linux,macos,windows,visualstudiocode,vagrant
 
 ### Linux ###
 *~
@@ -49,6 +49,16 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
+### Vagrant ###
+# General
+.vagrant/
+
+# Log files (if you are creating logs in debug mode, uncomment this)
+# *.log
+
+### Vagrant Patch ###
+*.box
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -94,7 +104,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/linux,macos,windows,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/linux,macos,windows,visualstudiocode,vagrant
 
 .shellspec-local
 .shellspec-quick.log
