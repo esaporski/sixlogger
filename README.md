@@ -74,7 +74,7 @@ The `sixlogger` function takes two arguments:
 
 ```sh
 # Download the sixlogger function into a new script
-SIXLOGGER_VERSION=0.1.0
+SIXLOGGER_VERSION=0.1.1
 cat <<EOF > sixlogger.sh && chmod +x sixlogger.sh
 #!/bin/sh
 $(curl -sSfL "https://github.com/esaporski/sixlogger/releases/download/${SIXLOGGER_VERSION}/sixlogger.sh")
@@ -85,7 +85,7 @@ EOF
 
 ```shell
 # Add the sixlogger function after shebang `#!`
-SIXLOGGER_VERSION=0.1.0
+SIXLOGGER_VERSION=0.1.1
 curl -sSfL "https://github.com/esaporski/sixlogger/releases/download/${SIXLOGGER_VERSION}/sixlogger.sh" |
   sed -i '/#!/r /dev/stdin' my_script.sh
 ```

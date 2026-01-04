@@ -4,7 +4,7 @@ tag_format = "$version"
 annotated_tag = true
 
 version_scheme = "semver2"
-version = "0.1.0"
+version = "0.1.1"
 version_files = ["README.md:SIXLOGGER_VERSION"]
 
 # Commitizen will keep the major version at zero
