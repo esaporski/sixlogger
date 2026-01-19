@@ -8,7 +8,7 @@ set -eu
 MOCK_DATE="2025-12-01T00:00:00+00:00"
 date() {
 	# Check if `date` command runs
-	if ! @date -u -Iseconds >/dev/null 2>&1; then exit 1; fi
+	if ! @date -u "+%Y-%m-%dT%H:%M:%S+00:00" >/dev/null 2>&1; then exit 1; fi
 	echo "$MOCK_DATE"
 }
 
