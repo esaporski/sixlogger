@@ -16,6 +16,10 @@ build: ## Remove comments and shebang from script
 	@echo "+$@"
 	@mkdir -p $(MAKEFILE_DIR)/build
 	@sed '/^[[:blank:]]*#/d;s/[[:blank:]]*#.*//' src/sixlogger.sh > $(MAKEFILE_DIR)/build/sixlogger.sh
+	@printf "1a\n# URL: %s | VERSION: %s\n.\nx" \
+		"$$(cat .cz.toml | grep "extras.repository_url" | cut -d '"' -f2)" \
+		"$$(cat .cz.toml | grep "^version = .*$$" | cut -d '"' -f2)" \
+	| ex $(MAKEFILE_DIR)/build/sixlogger.sh >/dev/null
 	@chmod +x $(MAKEFILE_DIR)/build/sixlogger.sh
 
 container-images: ## Build container images for `shellspec`
