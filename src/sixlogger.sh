@@ -38,8 +38,8 @@ sixlogger() {
 	e_sl_unknown_loglevel=${E_SIXLOGGER_UNKNOWN_LOGLEVEL:-30}
 	_sl_status_code=0
 
-	_sl_timestamp=$(date -u -Iseconds) # ISO 8601 date format
-	_sl_filename=$(basename "$0")      # Script name
+	_sl_timestamp=$(date -u "+%Y-%m-%dT%H:%M:%S+00:00") # ISO 8601 date format
+	_sl_filename=$(basename "$0")                       # Script name
 	_sl_loglevel=$(printf "%s" "$1" | tr '[:upper:]' '[:lower:]')
 	shift
 	_sl_message="$*"
